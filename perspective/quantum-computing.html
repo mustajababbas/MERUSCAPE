@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/font-awsome/css/all.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <script src="../js/main.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/jquery.js"></script>
+
+    
+    <title>Quantum computing - a realist's primer</title>
+
+</head>
+<body>
+
+   
+ 
+      
+    <div id="mySidenav" class="sidenav" style="background:#1f0559">
+        <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../index.html" >Home</a>
+        <a href="../team.html">Team</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="../perspective.html">Perspective</a>
+        <a href="../mcx.html">MC<sup>x</sup></a>
+      </div>
+
+      <div class="top-heading">
+        <span style="font-size:36px;cursor:pointer" onclick="openNav()">+</span>
+        <span id="menu-heading">Merus 
+
+            <p class="hide-heading"><span style="color: #1f0559;">Perspective</span></p>
+           
+
+        </span>
+    </div>
+      <div id="main">
+
+       
+
+        <div class="container-fluid mcx-main" style="padding:16rem 0;">
+
+     
+            <div class="container-fluid perspective-con"> 
+
+
+                <div class="row non-sticky">
+
+                    <div class="col-lg-3">
+
+
+
+                    </div>
+
+
+                    <div class="col-lg-7 col-8 perspective-center">
+
+                    
+
+                       <a href="../perspective.html"> All Perspective</a>
+                       <a href="../deep-dives.html"> Deep Dives</a>
+
+                       
+
+                 
+
+                    </div>
+
+
+               
+
+
+                </div>
+
+
+
+                <div class="row">
+
+                    <div class="col-lg-3 ">
+
+                    <div class="inner-left">
+
+                        <h3>May 2021</h3>
+                        <h3>Deep Tech</h3>
+                        <a href="../team.html">Salman Ullah</a>
+
+                    </div>
+
+                    </div>
+
+
+                    <div class="col-lg-7">
+
+                        <div class="inner-right">
+
+                        <h1>Quantum computing - a realist's primer</h1>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-2"></div>
+
+                </div>
+
+            <div class="row" style="margin-top: 50px;">
+
+                    <div class="col-lg-3">
+
+                       
+    
+                    </div>
+    
+    
+                        <div class="col-lg-7">
+    
+                            <div class="inner-content">
+    
+                            <p>
+                                Quantum computing is a very exciting and potentially impactful technology, but it remains somewhat mysterious. As a scientist and venture capitalist, I’m intrigued by technologies that promise to revolutionize industries, so it makes sense to try to understand what’s behind the curtain in order to gain a better appreciation of its promises and challenges. To do so, we’ll need to dig into a bit of physics.
+
+
+                            </p>
+                                <br>
+
+                                <p>
+
+                                    Everyday objects like bicycles, laptops and airplanes live in a given position in space at a given time. And since the age of Newton, that self-evident fact has enabled us to understand pretty much everything that we see around us.
+
+                                </p>
+
+                                <br>
+
+                               
+                                <p>
+
+                                    However, it’s also true that when we look at things a bit more closely, say at how electrons flow in a wire or through the semiconductors which form the very fabric of every computing device, we realize that the classical or Newtonian picture (the one that gave us F=ma) is a complete failure. To drive home the point, the classical picture cannot account for the existence of magnets, the periodic table or the stability of DNA. To explain all these phenomena, we need a completely different theory of the world—quantum theory.
+
+                                </p>
+
+                                <br>
+
+                                <p>
+
+
+                                Quantum theory in its most useful form was cooked up in the middle of the 1920s by the big three: 
+                                <a href="https://en.wikipedia.org/wiki/Werner_Heisenberg"> Heisenberg,</a> <a href="https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger">Schrödinger</a> 
+                                and <a href="https://en.wikipedia.org/wiki/Paul_Dirac">Dirac.</a> For our purposes, we’ll concentrate on what Dirac taught us: 
+                                all of the basic building blocks that make up the physical world (atoms, molecules, photons, etc.) 
+                                live not only in ordinary space, but also in another realm altogether—Hilbert space (named after David Hilbert, 
+                                one of the 20th century’s most insightful and influential mathematicians).
+
+
+
+                                </p>
+
+
+                                <br>
+
+                            
+                                <p>
+
+                                    Hilbert space is an abstract notion, but one of its key characteristics is that it’s very roomy.  Things that live in this space can move around in lots of interesting ways that have no analog in the classical world. One reason why Hilbert space is so rich is that the ‘position’ of any object in this space isn’t just described by real numbers but by complex numbers, that is, numbers that involve the square root of minus 1. We’ll return to this feature when we describe the scaling advantage of quantum computers over classical computers.
+
+
+                                </p>
+
+                                <br>
+
+                                <p>
+
+                                    Before we go any further, if there’s one takeaway from this primer it is this: 
+                                    <strong>computers compute in real space, quantum computers compute in Hilbert space.</strong>
+
+
+                                </p>
+
+
+                                <br>
+
+                                <p>
+
+                                    And it’s because of the richness of Hilbert space that quantum computers can ‘outperform’ classical computers. To get a feel for the mechanism underlying this advantage, let’s compare a 2-bit classical memory register with its quantum counterpart: the 2-qbit register.
+
+                                </p>
+
+
+                                <br>
+
+                                <p>
+
+                                    <i>Classical 2-bit register</i>
+
+                                </p>
+
+
+
+                                <br>
+
+                                <p>
+
+                                    Each register can contain a 1 or 0. There are 2 registers, so we can have the following configurations at any given time:
+
+
+                                </p>
+
+
+                                <br>
+
+                                <div style="text-align: center;">
+
+                                <img src="../images/quantum.webp" width="30%">
+
+                                 </div>
+
+                                <br>
+                                <br>
+                                <br>
+
+                                <p>
+
+                                    The first of these represents the number 0 and the last of these the number 3. So with a 2-bit register, we can encode any number between 0 and 3. And to repeat the obvious, the 2-bit register can only hold one set of values at a time (the equivalent of 0, 1, 2, or 3). You could always add more registers to hold larger numbers, e.g., with a 3-bit register you can represent all the numbers 0 to 7, but again, only one of these numbers can be held at any one time.
+
+                                </p>
+
+
+                                <br>
+
+                                <p>
+
+                                   <i>Quantum 2-bit register</i>
+
+
+                                </p>
+
+                                <br>
+
+                                <p>
+
+                                    A quantum 2-bit or 2-qbit register is an object that lives in Hilbert space as well as in physical space. To make this idea more concrete, let’s imagine two atoms in a box, where each atom can be hot or cold depending on whether it was hit with a laser recently.
+
+                                </p>
+
+                                <br>
+
+                                <p>
+
+                                    While we won’t be doing any math here, we’ll see that by merely writing down an equation that describes this 2-qbit , we can determine how it differs profoundly from its classical counterpart. Dirac taught us how to write down the state of this 2-qbit:
+
+
+                                </p>
+
+
+                                <br>
+
+                                <p>
+
+                                    |2-qbit> = a1 |00> + a2 |01> + a3 |10>  + a4 |11>
+
+                                </p>
+
+
+                                <br>
+
+                                <p>
+
+                                    The numbers in the | > simply describe whether each atom is hot (1) or cold (0). There are two important things to notice: (1) the 2-qbit register is a sum of all the different possibilities of the 1-qbits at the same time, (2) the numbers in front of each pair state, the ai, are complex.
+
+
+                                </p>    
+
+
+                                <br>
+
+                                <p>
+
+                                    (The ai are called amplitudes. If you square them appropriately, you get the probability of finding the memory register in that state. This is the origin of the notion that quantum theory deals only in probabilities. In fact, the theory deals with amplitudes—it’s only when you perform a measurement that you get a probability. Anticipating some of the discussion to follow, in the case of quantum computing, the computing takes place with amplitudes, but the results are generated as probabilities.)
+
+                                </p> 
+                                
+                                <br>
+
+                                <p>
+
+                                    We are now in a position to see explicitly why quantum computing is, in principle, far more powerful than classical computers. In short, they are massively parallel devices. While the classical 2-bit register can only hold one integer at a time (0, 1, 2 or 3), the 2-qbit register can hold 4 complex numbers of any size, the amplitudes ai.
+
+                                </p>
+
+
+                                <br>
+
+                                <p>
+
+                                    Imagine we had 32 atoms instead of just two. In this case, the 32-qbit could hold 2^32 or about 4 billion amplitudes at the same time, while the classical memory register can hold only one integer ranging in size from 0 to about 4 billion.
+
+                                </p>
+
+
+                                <br>
+
+                                <p>
+
+                                    <strong>So what exactly is a quantum computer?</strong>
+
+                                </p>
+
+
+                                <br>
+
+                                <p>
+
+                                    We now have a handle on why quantum computers hold so much promise. But they’re not magical devices. To better appreciate their nature, it’s helpful to go back to their origin story.
+
+
+                                </p>
+
+                                <br>
+
+                                <p>
+
+                                    Around 1981, <a href="https://en.wikipedia.org/wiki/Richard_Feynman">Feynman</a> was trying to 
+                                    better understand the physics of computation when he realized that any such theory better rely on 
+                                    quantum theory “because nature isn’t classical, dammit, and if you want to make a simulation of nature, 
+                                    you’d better make it quantum mechanical …and it’s a wonderful problem, because it doesn’t look easy.”
+
+
+
+                                </p>
+
+                                <br>
+
+                                <p>
+
+                                    The problem he was trying to solve was the following: can you use a classical computer to solve a quantum problem? For our purposes, a quantum problem is one that tries to figure out how a bunch of atoms behave. With a classical computer, you can definitely simulate a single atom of hydrogen. However, you have no chance of repeating that for even a handful of atoms or molecules, let alone for computing how semiconductors behave. Why not? Because as we have seen, quantum objects live in Hilbert space and have lots of amplitudes associated with them. The only feasible way to figure out what those amplitudes are is to use a quantum computer to track them. Classical computers just aren’t cut out to solve quantum problems—they don’t scale.
+
+
+                                </p>
+
+
+                                <br>
+
+                                <p>
+
+                                    But you don’t need to build a quantum computer per se to figure out how electrons flow in a wire. You can just do a bunch of experiments. By measuring the flow of the current in a wire you are directly probing a quantum phenomenon! Or, take another example more closely tied to actual quantum computers: how do two photons behave when they travel through a given optical circuit? Instead of trying to calculate the result using all the fancy machinery of quantum mechanics and a powerful classical supercomputer, why not just measure what happens? Measuring what happens is called a quantum computer.
+
+
+
+                                </p>
+
+                                <br>
+
+                                <p>
+
+                                    There is no difference between a quantum computer and a physics experiment. A quantum computer is a physics experiment that’s set up to solve a specific math problem.
+
+
+
+                                </p>
+
+
+                                <br>
+
+                                <p>
+
+                                    Let’s return to the experiment of two photons traveling through an optical circuit. It turns out that this experimental setup is related to certain search and sampling problems that are essentially intractable on classical computers. At the present time, with about 50 photons you can achieve so-called quantum supremacy (more on this below). In other words, you can crack a problem that is essentially impossible to do on any conceivable classical computer.
+
+
+                                </p>
+
+                                <br>
+
+                                <p>
+
+                                    <strong>Quantum computing in 3 steps</strong>
+
+                                </p>
+
+                                <br>
+
+                                <p>
+
+                                    So, the recipe for quantum computing is straightforward:
+
+                                </p>    
+
+                                <br>
+
+                                <ol>
+
+                                    <li style="margin-bottom: 10px;">Encode the math problem (factoring, search, sorting, etc.) in a physical quantum system (e.g., a bunch of photons in an optical circuit)</li>
+                                    <li style="margin-bottom: 10px;">Let the quantum experiment proceed (the photons create an interference pattern)</li>
+                                    <li style="margin-bottom: 10px;">Perform a specific measurement on the system that is engineered to give you the answer you are looking for with a certain probability (measure the interference pattern)</li>
+
+                                </ol>
+                                
+
+                               
+                                <br>
+
+
+                                <p>
+
+                                    Unfortunately, each of these steps is very difficult to envision, design, and implement, and all are severely constrained by both intrinsic (to quantum systems) and extrinsic limitations.
+
+                                </p>
+
+                                
+                                <br>
+
+
+                                <p>
+
+                                    For example, step 1 requires fundamental insights in algorithms (there are no off-the-shelf libraries of subroutines to be had). There are only about two dozen algorithms that have been developed so far and many are named after their creators. They are closer to being works of art than engineering exercises.
+
+                                </p>
+
+
+                                <br>
+
+
+                                <p>
+
+                                    To get a feel for why it’s so challenging to come up with quantum algorithms, consider the simple notion of copying the content of one memory register to another. In a classical computer this is trivial—consider copying from register A and register B: see what’s in register A and if it’s 0 (1), then make register B 0 (1).
+
+                                </p>
+
+
+                                <br>
+
+
+                                <p>
+
+                                    This simple copying operation is impossible for quantum registers. It’s such a fundamental constraint that it has its own name, “the no cloning-theorem”.
+
+                                </p>
+
+                                
+                                <br>
+
+
+                                <p>
+
+                                    If quantum computing has an Achilles’ heel, it’s step 2. The innocuous phrase “let the quantum experiment proceed” elides over a fundamental challenge of quantum systems. Quantum systems are extremely sensitive to outside disturbances. This sensitivity is likely the only intuitive feature of quantum systems: they consist of some of the smallest entities we can manipulate and the trouble with being small is that you get knocked about very easily. As quantum systems get bigger, it becomes ever harder to isolate them from the outside (classical) world and the errors at each step of the computation grow. Just as in classical coding theory, there are error-correcting solutions. However, unlike the classical case, there is no clear evidence that these solutions are useful beyond a certain system size.
+
+                                </p>
+
+
+                                <br>
+
+
+                                <p>
+
+                                    Finally, and again in the interest of demystifying quantum computing, let’s look at quantum ‘supremacy’. This is the notion that a quantum computer can carry out a particular calculation much faster than any classical computer. From our physics perspective, this claim is almost trivial. A quantum experiment (configured to generate some computational result) cannot be easily simulated by a classical computer—Feynman’s conclusion from 40 years ago.
+                                    
+                                </p>
+
+
+                                <br>
+
+
+                                <p>
+
+                                    Dozens, if not hundreds, of teams around the world are working on the myriad aspects of quantum computing. From developing algorithms to building the experiments and pioneering new techniques in photonic physics, ion-trapping, quantum dots and many other approaches. These efforts have pushed the frontiers of experimental physics and introduced the world of computer science to the intricacies of quantum theory.
+                                    
+                                </p>
+
+
+                                <br>
+
+
+                                <p>
+
+                                    The technical challenges for quantum computing are fundamental and formidable. It’s most likely the deepest of deep-tech endeavors and very, very unlikely to be cracked open by two people tinkering in a garage. So, while the inherent power of the quantum computing paradigm is undeniable, its commercialization will continue to pose a challenge. Hilbert space will not give up its riches easily.
+                                    
+                                </p>
+                        
+                        
+
+                              
+
+    
+                            </div>
+    
+                        </div>
+    
+                        <div class="col-lg-2">
+
+
+                        </div>
+
+
+                
+
+
+                        <div class="col-lg-3 ">
+
+                            <div class=""> 
+        
+                            </div>
+        
+                            </div>
+        
+        
+                            <div class="col-lg-7">
+        
+                                <div class="back-to">
+        
+                                <a href="../perspective.html">← Back to Perspectives</a>
+        
+                                </div>
+
+                                <div class="share-via">
+
+                                    <h3>Share via:</h3>
+                                    <a href="#">Twitter</a>
+                                    <a href="#">LinkedIn</a>
+                                    <a href="#">Email</a>
+                                    
+
+                                </div>
+        
+                            </div>
+        
+        
+                            <div class="col-lg-2"></div>
+        
+                        </div>
+
+
+
+                </div>
+
+                </div>
+
+              
+
+
+             
+
+
+
+
+
+
+
+
+            
+               
+    
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+            <!-- FOOTER  -->
+            
+        <footer>
+
+            <div class="container-fluid">
+    
+            <div class="row footer-top">
+    
+                <div class="col-lg-2 col-xs-12 footer-logo">
+    
+                    <span>©</span>
+                    <span style="font-weight: bold;">Merus</span>
+                    <span>Capital</span>
+    
+                </div>
+    
+                <div class="col-lg-2 col-xs-12 footer-col-2">
+    
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Info@example.com</a></li>  
+    
+                    </ul>
+    
+                </div>
+    
+    
+                <div class="col-lg-3 col-xs-12 footer-col-3">
+    
+                    <ul>
+
+                        <li><a href="#">Investor Login ↗︎</a></li>
+                       
+    
+                    </ul>
+    
+                </div>
+    
+    
+                <div class="col-lg-5 col-xs-12 footer-col-4">
+    
+                    <ul>
+                        <li>Subscribe to our newsletter:</li>
+                        <form class="newsletter">
+
+                            <input type="email" name="emal" placeholder="email">
+                            <p><a href="#">Submit</a></p>
+
+                        </form>
+    
+                    </ul>
+    
+                </div>
+    
+    
+    
+            </div>
+    
+    
+           
+    
+            </div>
+    
+        </footer>
+
+
+
+       
+      </div>
+   
+
+
+
+
+
+    
+</body>
+</html>
+
+
+
